@@ -63,7 +63,7 @@ export const LoginPage = () => {
 
                     <div className="relative z-10 p-16 flex flex-col justify-between h-full w-full">
                         <div className="flex items-center gap-3">
-                            <img src="/LOGO.png" alt="" className="h-8 w-auto invert brightness-0" />
+                            <img src="/LOGO.png" alt="" className="h-8 w-auto brightness-0 invert" />
                             <span className="text-white font-black tracking-tighter text-xl uppercase italic">BUILDER EXONE</span>
                         </div>
 
