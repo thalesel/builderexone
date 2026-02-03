@@ -11,7 +11,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
 
     const navLinkClass = (path: string) => {
         const isActive = location.pathname === path;
-        return `flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-xl font-black transition-all text-[10px] md:text-sm uppercase tracking-widest ${isActive ? 'bg-black text-white shadow-md' : 'text-zinc-400 hover:text-black hover:bg-zinc-50'
+        return `flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest ${isActive ? 'bg-black text-white shadow-md' : 'text-zinc-400 hover:text-black hover:bg-zinc-50'
             }`;
     };
 
@@ -42,7 +42,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                             <p className="text-[9px] uppercase tracking-widest text-zinc-400 mb-1 font-black">Sessão Ativa</p>
                             <p className="text-xs font-bold truncate text-zinc-600">{user.email}</p>
                         </div>
-                        <Button variant="outline" className="w-full border-zinc-200 rounded-xl py-2" onClick={onLogout}>Sair</Button>
+                        <Button variant="outline" className="w-full border-zinc-200 rounded-lg py-2" onClick={onLogout}>Sair</Button>
                     </div>
                 </nav>
             </aside>
@@ -64,7 +64,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
             </main>
 
             {/* Mobile Bottom Navigation */}
-            <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-200 px-4 py-2.5 flex justify-around items-center z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.03)] rounded-t-2xl">
+            <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-200 px-4 py-2.5 flex justify-around items-center z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.03)] rounded-t-lg">
                 <Link to="/dashboard" className={navLinkClass('/dashboard')}>
                     <ICONS.Dashboard />
                     <span>Início</span>

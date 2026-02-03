@@ -32,7 +32,7 @@ export const PlansPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {/* Basic Plan */}
-                <div className="bg-white border border-zinc-200 p-8 rounded-[2rem] flex flex-col hover:border-black transition-all shadow-sm group">
+                <div className="bg-white border border-zinc-200 p-8 rounded-lg flex flex-col hover:border-black transition-all shadow-sm group">
                     <div className="mb-8">
                         <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 bg-zinc-100 rounded-full group-hover:bg-black group-hover:text-white transition-colors">Destaque</span>
                         <h3 className="text-xl md:text-2xl font-black mt-4 uppercase">Combo Inicial</h3>
@@ -52,11 +52,11 @@ export const PlansPage = () => {
                             </li>
                         ))}
                     </ul>
-                    <Button onClick={() => handleBuy('plano')} className="w-full py-4 rounded-2xl">Adquirir Combo</Button>
+                    <Button onClick={() => handleBuy('plano')} className="w-full py-4 rounded-lg">Adquirir Combo</Button>
                 </div>
 
                 {/* Extra Slot */}
-                <div className="bg-white border border-zinc-200 p-8 rounded-[2rem] flex flex-col hover:border-black transition-all shadow-sm group">
+                <div className="bg-white border border-zinc-200 p-8 rounded-lg flex flex-col hover:border-black transition-all shadow-sm group">
                     <div className="mb-8">
                         <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 bg-zinc-100 rounded-full">Expansão</span>
                         <h3 className="text-xl md:text-2xl font-black mt-4 uppercase">Slot Extra</h3>
@@ -76,17 +76,17 @@ export const PlansPage = () => {
                             </li>
                         ))}
                     </ul>
-                    <Button variant="secondary" onClick={() => handleBuy('slot')} className="w-full py-4 rounded-2xl">Comprar Slot</Button>
+                    <Button variant="secondary" onClick={() => handleBuy('slot')} className="w-full py-4 rounded-lg">Comprar Slot</Button>
                 </div>
 
                 {/* Status Card */}
-                <div className="bg-black text-white p-8 md:p-10 rounded-[2rem] flex flex-col justify-center border border-black shadow-xl relative overflow-hidden">
+                <div className="bg-black text-white p-8 md:p-10 rounded-lg flex flex-col justify-center border border-black shadow-xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-zinc-900 rounded-full -mr-16 -mt-16 opacity-50"></div>
                     <h3 className="text-xl font-black uppercase tracking-tight mb-4 relative z-10">Vitalício</h3>
                     <p className="text-zinc-400 text-xs leading-relaxed mb-8 relative z-10">
                         Não cobramos mensalidades. Todos os slots adquiridos são <strong className="text-white">vitalícios</strong> e incluem hospedagem sem custos recorrentes.
                     </p>
-                    <div className="p-5 bg-zinc-900 rounded-2xl border border-zinc-800 relative z-10">
+                    <div className="p-5 bg-zinc-900 rounded-lg border border-zinc-800 relative z-10">
                         <p className="text-[9px] uppercase font-black tracking-widest text-zinc-500 mb-2">Capacidade Atual</p>
                         <div className="flex items-end gap-2">
                             <p className="text-2xl font-black">{user.slots_usados}</p>

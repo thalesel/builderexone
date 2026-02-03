@@ -30,7 +30,7 @@ export const PublicSite = () => {
     if (!site.ativo) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-zinc-950 text-white p-8 text-center">
-                <div className="max-w-md border border-zinc-800 p-10 md:p-14 rounded-[3rem] bg-zinc-900 shadow-2xl">
+                <div className="max-w-md border border-zinc-800 p-10 md:p-14 rounded-lg bg-zinc-900 shadow-2xl">
                     <div className="mb-8 flex justify-center text-zinc-700">
                         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
                     </div>
@@ -82,10 +82,10 @@ export const PublicSite = () => {
                         <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-300 mb-8">Ecossistema Digital</h3>
                         <div className="flex flex-col gap-3">
                             {site.instagram && (
-                                <a href={`https://instagram.com/${site.instagram.replace('@', '')}`} className="w-full text-center py-4 bg-black text-white text-[10px] uppercase font-black tracking-[0.2em] hover:bg-zinc-800 transition-all rounded-2xl shadow-xl active:scale-95">Instagram Oficial</a>
+                                <a href={`https://instagram.com/${site.instagram.replace('@', '')}`} className="w-full text-center py-4 bg-black text-white text-[10px] uppercase font-black tracking-[0.2em] hover:bg-zinc-800 transition-all rounded-lg shadow-xl active:scale-95">Instagram Oficial</a>
                             )}
                             {site.whatsapp && (
-                                <a href={`https://wa.me/${site.whatsapp}`} className="w-full text-center py-4 border-2 border-black text-black text-[10px] uppercase font-black tracking-[0.2em] hover:bg-zinc-50 transition-all rounded-2xl active:scale-95">WhatsApp Business</a>
+                                <a href={`https://wa.me/${site.whatsapp}`} className="w-full text-center py-4 border-2 border-black text-black text-[10px] uppercase font-black tracking-[0.2em] hover:bg-zinc-50 transition-all rounded-lg active:scale-95">WhatsApp Business</a>
                             )}
                         </div>
                     </div>
@@ -97,7 +97,7 @@ export const PublicSite = () => {
                 <a
                     href={`https://wa.me/${mainSupport.numero}?text=Olá! Preciso de ajuda com o site ${site.razao_social}`}
                     target="_blank"
-                    className="fixed bottom-8 right-8 z-[50] group flex items-center gap-3 bg-black text-white p-4 rounded-3xl shadow-2xl hover:scale-105 transition-all active:scale-95 border border-zinc-800"
+                    className="fixed bottom-8 right-8 z-[50] group flex items-center gap-3 bg-black text-white p-4 rounded-lg shadow-2xl hover:scale-105 transition-all active:scale-95 border border-zinc-800"
                 >
                     <div className="hidden md:block overflow-hidden max-w-0 group-hover:max-w-[200px] transition-all duration-500 whitespace-nowrap">
                         <span className="text-[10px] font-black uppercase tracking-widest ml-2">Receber Ajuda</span>
@@ -109,7 +109,7 @@ export const PublicSite = () => {
             <footer className="py-16 md:py-20 px-6 md:px-8 text-center border-t border-zinc-100 bg-zinc-50">
                 <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
                     <p className="text-[9px] uppercase tracking-[0.3em] font-black text-zinc-400 max-w-xs leading-relaxed">{site.rodape}</p>
-                    <div className="flex items-center gap-4 px-6 py-3 bg-white border border-zinc-200 rounded-2xl shadow-sm">
+                    <div className="flex items-center gap-4 px-6 py-3 bg-white border border-zinc-200 rounded-lg shadow-sm">
                         <p className="text-[9px] uppercase tracking-widest text-zinc-300 font-black">By</p>
                         <div className="flex items-center gap-2">
                             <ICONS.Logo className="w-4 h-4 text-black" />

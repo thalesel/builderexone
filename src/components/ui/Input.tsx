@@ -10,7 +10,7 @@ export const Input = ({ label, value, onChange, placeholder, type = 'text', requ
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
             required={required}
-            className="border border-zinc-200 bg-white rounded-xl px-4 py-3 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all shadow-sm text-sm"
+            className="border border-zinc-200 bg-white rounded-lg px-4 py-3 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all shadow-sm text-sm"
         />
     </div>
 );

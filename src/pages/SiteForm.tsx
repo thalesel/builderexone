@@ -105,7 +105,7 @@ export const SiteForm = () => {
     return (
         <div className="space-y-8 md:space-y-12">
             <header className="flex items-center gap-6">
-                <button onClick={() => navigate(-1)} className="p-3 bg-white border border-zinc-200 hover:border-black rounded-xl shadow-sm transition-all"><ICONS.ChevronLeft /></button>
+                <button onClick={() => navigate(-1)} className="p-3 bg-white border border-zinc-200 hover:border-black rounded-lg shadow-sm transition-all"><ICONS.ChevronLeft /></button>
                 <div>
                     <h2 className="text-2xl md:text-3xl font-black tracking-tighter uppercase">{existingSite ? 'Configurações' : 'Novo Projeto'}</h2>
                     <p className="text-zinc-400 uppercase tracking-widest text-[9px] font-black mt-1">Editor de parâmetros</p>
@@ -156,7 +156,7 @@ export const SiteForm = () => {
                         ]
                     }
                 ].map((section, idx) => (
-                    <section key={idx} className="bg-white p-6 md:p-10 rounded-[2.5rem] border border-zinc-100 shadow-sm">
+                    <section key={idx} className="bg-white p-6 md:p-10 rounded-lg border border-zinc-100 shadow-sm">
                         <div className="border-b border-black pb-3 mb-8">
                             <h3 className="text-[10px] font-black uppercase tracking-[0.3em]">{section.title}</h3>
                         </div>
@@ -187,8 +187,8 @@ export const SiteForm = () => {
                 ))}
 
                 <div className="flex flex-col md:flex-row justify-end gap-4 pt-8 md:pt-12 border-t border-zinc-200">
-                    <Button variant="secondary" className="w-full md:w-auto px-10 rounded-xl order-2 md:order-1" onClick={() => navigate('/dashboard')}>Cancelar</Button>
-                    <Button type="submit" className="w-full md:w-auto px-16 rounded-xl order-1 md:order-2" disabled={loading}>{loading ? 'Salvando...' : 'Confirmar'}</Button>
+                    <Button variant="secondary" className="w-full md:w-auto px-10 rounded-lg order-2 md:order-1" onClick={() => navigate('/dashboard')}>Cancelar</Button>
+                    <Button type="submit" className="w-full md:w-auto px-16 rounded-lg order-1 md:order-2" disabled={loading}>{loading ? 'Salvando...' : 'Confirmar'}</Button>
                 </div>
             </form>
         </div>

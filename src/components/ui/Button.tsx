@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const Button = ({ children, onClick, variant = 'primary', className = '', disabled = false, type = 'button' }: any) => {
-  const base = "px-4 py-2.5 rounded-xl font-bold transition-all flex items-center justify-center gap-2 disabled:opacity-30 disabled:cursor-not-allowed border text-sm uppercase tracking-widest";
+  const base = "px-4 py-2.5 rounded-lg font-bold transition-all flex items-center justify-center gap-2 disabled:opacity-30 disabled:cursor-not-allowed border text-sm uppercase tracking-widest";
   const variants: any = {
     primary: "bg-black text-white hover:bg-zinc-800 border-black shadow-lg active:scale-95",
     secondary: "bg-zinc-100 text-black hover:bg-zinc-200 border-zinc-200 active:scale-95",

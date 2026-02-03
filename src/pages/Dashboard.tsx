@@ -81,9 +81,9 @@ export const Dashboard = () => {
             />
 
             {(isLimitReached || hasNoPlan) && (
-                <div className="border border-black p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white shadow-lg animate-in slide-in-from-top duration-500">
+                <div className="border border-black p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white shadow-lg animate-in slide-in-from-top duration-500">
                     <div className="flex items-center gap-5">
-                        <div className="bg-black text-white p-3 rounded-2xl shrink-0 shadow-md">
+                        <div className="bg-black text-white p-3 rounded-lg shrink-0 shadow-md">
                             <ICONS.CreditCard />
                         </div>
                         <div>
@@ -103,21 +103,21 @@ export const Dashboard = () => {
 
             {/* Stats Cards - Compact on mobile, grid on desktop */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                <div className="bg-white border border-zinc-200 p-6 md:p-8 rounded-[2rem] shadow-sm flex flex-col justify-between">
+                <div className="bg-white border border-zinc-200 p-6 md:p-8 rounded-lg shadow-sm flex flex-col justify-between">
                     <p className="text-[9px] uppercase tracking-widest font-black text-zinc-400 mb-4">Slots Utilizados</p>
                     <div className="flex items-baseline gap-1">
                         <span className="text-4xl md:text-5xl font-black tracking-tighter">{user.slots_usados}</span>
                         <span className="text-xl text-zinc-300 font-black">/ {user.role === 'admin' ? '∞' : user.slots_total}</span>
                     </div>
                 </div>
-                <div className="bg-white border border-zinc-200 p-6 md:p-8 rounded-[2rem] shadow-sm flex flex-col justify-between">
+                <div className="bg-white border border-zinc-200 p-6 md:p-8 rounded-lg shadow-sm flex flex-col justify-between">
                     <p className="text-[9px] uppercase tracking-widest font-black text-zinc-400 mb-4">Sites Ativos</p>
                     <div>
                         <span className="text-4xl md:text-5xl font-black tracking-tighter">{activeSitesCount}</span>
                         <p className="text-[8px] text-zinc-400 mt-2 uppercase font-black tracking-widest">Publicados na rede</p>
                     </div>
                 </div>
-                <div className="col-span-2 md:col-span-1 p-6 md:p-8 bg-black text-white rounded-[2rem] shadow-xl border border-black flex flex-col justify-between">
+                <div className="col-span-2 md:col-span-1 p-6 md:p-8 bg-black text-white rounded-lg shadow-xl border border-black flex flex-col justify-between">
                     <p className="text-[9px] uppercase tracking-widest font-black text-zinc-500 mb-4">Status da Rede</p>
                     <div>
                         <p className="text-lg font-black uppercase tracking-tighter">{user.slots_total > 0 ? 'Plano Ativo' : 'Pendente'}</p>
@@ -143,8 +143,8 @@ export const Dashboard = () => {
                             <p className="uppercase tracking-widest text-[9px] font-black text-zinc-400">Carregando Instâncias...</p>
                         </div>
                     ) : sites.length === 0 ? (
-                        <div className="border-2 border-dashed border-zinc-200 p-16 md:p-24 text-center rounded-[2.5rem] bg-white/50 group hover:border-black transition-all">
-                            <div className="bg-zinc-100 w-12 h-12 rounded-2xl mx-auto mb-6 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
+                        <div className="border-2 border-dashed border-zinc-200 p-16 md:p-24 text-center rounded-lg bg-white/50 group hover:border-black transition-all">
+                            <div className="bg-zinc-100 w-12 h-12 rounded-lg mx-auto mb-6 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
                                 <ICONS.Plus />
                             </div>
                             <p className="text-zinc-400 uppercase tracking-widest text-[10px] font-black">Nenhum projeto iniciado</p>
@@ -152,7 +152,7 @@ export const Dashboard = () => {
                         </div>
                     ) : (
                         sites.map(site => (
-                            <div key={site.id} className="bg-white border border-zinc-200 p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-black transition-all rounded-3xl shadow-sm hover:shadow-md group">
+                            <div key={site.id} className="bg-white border border-zinc-200 p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-black transition-all rounded-lg shadow-sm hover:shadow-md group">
                                 <div className="flex-1">
                                     <h4 className="text-xl font-black tracking-tighter uppercase group-hover:text-black">{site.razao_social}</h4>
                                     <div className="flex items-center gap-2 mt-2">

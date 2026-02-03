@@ -82,7 +82,7 @@ export const AdminPanel = () => {
             </header>
 
             {/* Global Live Help Configuration */}
-            <section className="bg-white border border-zinc-200 p-8 rounded-[2rem] shadow-sm grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section className="bg-white border border-zinc-200 p-8 rounded-lg shadow-sm grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6">WhatsApp: Auxílio ao Vivo</h3>
                     <div className="flex flex-col gap-4">
@@ -112,7 +112,7 @@ export const AdminPanel = () => {
             </section>
 
             {/* Support Numbers Management */}
-            <section className="bg-white border border-zinc-200 p-8 rounded-[2rem] shadow-sm">
+            <section className="bg-white border border-zinc-200 p-8 rounded-lg shadow-sm">
                 <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6">Canais de Suporte (Botão de Ajuda nos Sites)</h3>
 
                 <form onSubmit={handleAddSupport} className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-end">
@@ -123,7 +123,7 @@ export const AdminPanel = () => {
 
                 <div className="space-y-3">
                     {supportList.map(n => (
-                        <div key={n.id} className="flex items-center justify-between p-4 bg-zinc-50 rounded-2xl border border-zinc-100">
+                        <div key={n.id} className="flex items-center justify-between p-4 bg-zinc-50 rounded-lg border border-zinc-100">
                             <div>
                                 <p className="text-xs font-black uppercase tracking-tight">{n.nome}</p>
                                 <p className="text-[10px] font-mono text-zinc-400">{n.numero}</p>
@@ -139,7 +139,7 @@ export const AdminPanel = () => {
 
             <section>
                 <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6 px-2">Usuários Registrados</h3>
-                <div className="bg-white border border-zinc-200 rounded-[2rem] overflow-hidden shadow-sm overflow-x-auto">
+                <div className="bg-white border border-zinc-200 rounded-lg overflow-hidden shadow-sm overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="bg-black text-white text-[9px] uppercase font-black tracking-widest">
@@ -153,7 +153,7 @@ export const AdminPanel = () => {
                                 <tr key={u.id} className="hover:bg-zinc-50 transition-colors">
                                     <td className="px-6 py-5 font-bold text-xs truncate max-w-[150px]">{u.email}</td>
                                     <td className="px-6 py-5">
-                                        <span className={`text-[9px] font-black tracking-widest uppercase px-2 py-1 rounded-md ${u.role === 'admin' ? 'bg-black text-white' : 'bg-zinc-100 text-zinc-500'}`}>{u.role}</span>
+                                        <span className={`text-[9px] font-black tracking-widest uppercase px-2 py-1 rounded-lg ${u.role === 'admin' ? 'bg-black text-white' : 'bg-zinc-100 text-zinc-500'}`}>{u.role}</span>
                                     </td>
                                     <td className="px-6 py-5 text-[10px] font-mono font-bold text-center">{u.slots_usados} / {u.role === 'admin' ? '∞' : u.slots_total}</td>
                                 </tr>
@@ -165,7 +165,7 @@ export const AdminPanel = () => {
 
             <section>
                 <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6 px-2">Projetos Ativos na Rede</h3>
-                <div className="bg-white border border-zinc-200 rounded-[2rem] overflow-hidden shadow-sm overflow-x-auto">
+                <div className="bg-white border border-zinc-200 rounded-lg overflow-hidden shadow-sm overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="bg-black text-white text-[9px] uppercase font-black tracking-widest">
