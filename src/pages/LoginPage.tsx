@@ -73,21 +73,21 @@ export const LoginPage = () => {
                 </div>
 
                 {/* Right Side: Auth Form */}
-                <div className="flex-1 p-8 md:p-16 flex flex-col justify-center bg-white">
+                <div className="flex-1 p-8 md:p-16 flex flex-col justify-center bg-white text-zinc-950">
                     {/* Mobile Header (Hidden on PC) */}
                     <div className="md:hidden text-center mb-12">
                         <img src="/LOGO.png" alt="" className="h-16 w-auto mx-auto mb-6" />
-                        <h1 className="text-3xl font-black tracking-tighter uppercase italic">BUILDER EXONE</h1>
+                        <h1 className="text-3xl font-black tracking-tighter uppercase italic text-black">BUILDER EXONE</h1>
                         <div className="h-1 w-12 bg-black mx-auto mt-4"></div>
                     </div>
 
                     <div className="max-w-sm mx-auto w-full">
                         <div className="mb-10 text-left">
                             <div className="text-blue-600 text-3xl font-light mb-4">✱</div>
-                            <h2 className="text-3xl font-black tracking-tighter uppercase mb-2 italic">
+                            <h2 className="text-3xl font-black tracking-tighter uppercase mb-2 italic text-black">
                                 {isRegistering ? 'Criar Conta' : 'Acesse sua Conta'}
                             </h2>
-                            <p className="text-zinc-400 text-sm font-medium">
+                            <p className="text-zinc-500 text-sm font-medium">
                                 {isRegistering
                                     ? 'Preencha os dados abaixo para iniciar sua jornada.'
                                     : 'Bem-vindo de volta! Insira suas credenciais.'}
@@ -102,24 +102,24 @@ export const LoginPage = () => {
 
                         <form onSubmit={handleAuth} className="space-y-6 text-left">
                             <div className="space-y-2">
-                                <label className="text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 ml-1">Seu E-mail</label>
+                                <label className="text-[10px] uppercase tracking-[0.2em] font-black text-zinc-500 ml-1">Seu E-mail</label>
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full border-b-2 border-zinc-100 bg-transparent px-1 py-3 focus:border-blue-600 outline-none transition-all text-sm font-bold"
+                                    className="w-full border-b-2 border-zinc-100 bg-transparent px-1 py-3 focus:border-blue-600 outline-none transition-all text-black text-sm font-bold"
                                     placeholder="exemplo@clubx1.com"
                                     required
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 ml-1">Sua Senha</label>
+                                <label className="text-[10px] uppercase tracking-[0.2em] font-black text-zinc-500 ml-1">Sua Senha</label>
                                 <input
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full border-b-2 border-zinc-100 bg-transparent px-1 py-3 focus:border-blue-600 outline-none transition-all text-sm font-bold"
+                                    className="w-full border-b-2 border-zinc-100 bg-transparent px-1 py-3 focus:border-blue-600 outline-none transition-all text-black text-sm font-bold"
                                     placeholder="••••••••"
                                     required
                                 />
@@ -133,7 +133,7 @@ export const LoginPage = () => {
                         <div className="mt-8 flex flex-col gap-6">
                             <div className="relative flex items-center justify-center">
                                 <div className="border-t border-zinc-100 w-full absolute"></div>
-                                <span className="bg-white px-4 text-[10px] font-black uppercase tracking-widest text-zinc-300 relative z-10">ou continue com</span>
+                                <span className="bg-white px-4 text-[10px] font-black uppercase tracking-widest text-zinc-400 relative z-10">ou continue com</span>
                             </div>
 
                             <div className="grid grid-cols-1 gap-4">
@@ -150,7 +150,7 @@ export const LoginPage = () => {
 
                         <div className="mt-10 text-center">
                             <button
-                                className="text-[10px] uppercase tracking-widest font-black text-zinc-400 hover:text-black transition-all"
+                                className="text-[10px] uppercase tracking-widest font-black text-zinc-500 hover:text-black transition-all"
                                 onClick={() => setIsRegistering(!isRegistering)}
                             >
                                 {isRegistering ? (

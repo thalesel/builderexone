@@ -38,7 +38,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                         rel="noopener noreferrer"
                         className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-xl font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-500 hover:text-white hover:bg-white/5"
                     >
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]"></div> WHATSAPP
+                        <ICONS.WhatsApp /> WHATSAPP
                     </a>
                     <a
                         href="https://discord.gg/EK8su2XQ"
@@ -46,7 +46,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                         rel="noopener noreferrer"
                         className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-xl font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-500 hover:text-white hover:bg-white/5"
                     >
-                        <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.4)]"></div> DISCORD
+                        <ICONS.Discord /> DISCORD
                     </a>
                     {isAdmin && (
                         <Link to="/admin" className={navLinkClass('/admin')}>
@@ -95,7 +95,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg font-black transition-all text-[10px] uppercase tracking-widest text-zinc-400"
                 >
-                    <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]"></div>
+                    <ICONS.WhatsApp />
                     <span>Whats</span>
                 </a>
                 <a
@@ -104,7 +104,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg font-black transition-all text-[10px] uppercase tracking-widest text-zinc-400"
                 >
-                    <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.4)]"></div>
+                    <ICONS.Discord />
                     <span>Discord</span>
                 </a>
                 {isAdmin && (

@@ -110,7 +110,7 @@ export const SitePage = () => {
                                     href={`https://wa.me/${site.whatsapp.replace(/\D/g, '')}`}
                                     className="flex items-center justify-center gap-4 w-full text-center py-5 border border-zinc-800 text-white text-[10px] uppercase font-black tracking-[0.3em] hover:bg-white hover:text-black transition-all rounded-2xl active:scale-95 shadow-xl bg-zinc-900/50 backdrop-blur-sm"
                                 >
-                                    WhatsApp Connect
+                                    <ICONS.WhatsApp /> WhatsApp Connect
                                 </a>
                             )}
                             {site.instagram && (
@@ -139,9 +139,7 @@ export const SitePage = () => {
                     <div className="hidden md:block overflow-hidden max-w-0 group-hover:max-w-[200px] transition-all duration-500 whitespace-nowrap">
                         <span className="text-[10px] font-black uppercase tracking-widest ml-2">Receber Ajuda</span>
                     </div>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" fill="#22c55e" />
-                    </svg>
+                    <div className="w-6 h-6 rounded-full bg-[#22c55e] shadow-[0_0_15px_rgba(34,197,94,0.4)]" />
                 </a>
             )}
 

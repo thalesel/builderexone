@@ -56,13 +56,9 @@ export const ICONS = {
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M15.45 8a3.5 3.5 0 1 0-3.5 3.5L12 11.5" /><path d="M22 10h-6" /><path d="M19 7v6" /></svg>
   ),
   WhatsApp: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="6" fill="#22c55e" />
-    </svg>
+    <div className="w-2.5 h-2.5 rounded-full bg-[#22c55e] inline-block shadow-[0_0_10px_rgba(34,197,94,0.4)]" />
   ),
   Discord: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="6" fill="#a855f7" />
-    </svg>
+    <div className="w-2.5 h-2.5 rounded-full bg-[#a855f7] inline-block shadow-[0_0_10px_rgba(168,85,247,0.4)]" />
   )
 };
