@@ -21,21 +21,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const fetchProfile = async (id: string, email: string) => {
         try {
-            const { data, error } = await supabase
-                .from('users')
-                .select('*')
-                .eq('id', id)
-                .single();
+            if (error) {
+                console.error("Supabase Error fetching profile:", error);
+            }
 
             if (data) {
-                console.log("Profile found:", data);
+                console.log("Profile LOADED successfully:", data);
                 setUser(data);
             } else {
-                console.log("Profile not found, using fallback for:", email);
+                console.warn("No profile found in public.users for ID:", id, "Using fallback.");
                 setUser({ id, email, role: 'user', slots_total: 0, slots_usados: 0 });
             }
-        } catch (error) {
-            console.error("Error fetching profile:", error);
+        } catch (err) {
+            console.error("Catch Error in fetchProfile:", err);
         } finally {
             setLoading(false);
         }
