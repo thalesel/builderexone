@@ -38,6 +38,7 @@ export const LoginPage = () => {
 
                 <div className="text-center mb-10">
                     <img src="/logo.png" alt="Builder Exone" className="h-16 w-auto mx-auto mb-6" />
+                    <h1 className="text-2xl font-black tracking-tighter uppercase mb-2">BUILDER EXONE</h1>
                     <div className="h-0.5 w-12 bg-black mx-auto mb-4"></div>
                     <p className="text-zinc-400 text-[10px] uppercase font-black tracking-[0.3em]">
                         {isRegistering ? 'Nova Assinatura' : 'Painel de Controle'}
