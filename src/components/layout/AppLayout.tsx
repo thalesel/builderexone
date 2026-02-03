@@ -19,10 +19,8 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
         <div className="min-h-screen flex flex-col md:flex-row bg-zinc-50">
             {/* Desktop Sidebar */}
             <aside className="hidden md:flex w-64 bg-white border-r border-zinc-200 flex-col sticky top-0 h-screen">
-                <div className="p-8 border-b border-zinc-100">
-                    <h1 className="text-lg font-black tracking-tighter uppercase">
-                        BUILDER EXONE
-                    </h1>
+                <div className="p-8 border-b border-zinc-100 flex justify-center">
+                    <img src="/logo.png" alt="Builder Exone" className="w-auto h-8" />
                 </div>
                 <nav className="flex-1 p-4 flex flex-col gap-2">
                     <Link to="/dashboard" className={navLinkClass('/dashboard')}>
@@ -48,7 +46,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
 
             {/* Mobile Header */}
             <header className="md:hidden flex items-center justify-between px-6 py-4 bg-white border-b border-zinc-200 sticky top-0 z-30">
-                <h1 className="text-sm font-black tracking-tighter uppercase">BUILDER EXONE</h1>
+                <img src="/logo.png" alt="Builder Exone" className="h-6 w-auto" />
                 <button onClick={onLogout} className="text-[10px] font-black uppercase tracking-widest text-zinc-400 border border-zinc-200 px-3 py-1.5 rounded-lg">Sair</button>
             </header>
 
