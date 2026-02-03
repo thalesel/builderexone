@@ -146,7 +146,7 @@ export const Dashboard = () => {
             <section className="space-y-6">
                 <div className="flex items-center justify-between px-2">
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">Projetos Ativos</h3>
-                    {sites.length > 0 && <span className="text-[10px] font-black bg-zinc-200 px-2 py-0.5 rounded-md uppercase">{sites.length}</span>}
+                    {sites.length > 0 && <span className="text-[10px] font-black bg-blue-600 text-white px-2 py-0.5 rounded-md uppercase">{sites.length}</span>}
                 </div>
 
                 <div className="grid grid-cols-1 gap-4">
