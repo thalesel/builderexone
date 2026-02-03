@@ -26,18 +26,26 @@ export const Dashboard = () => {
 
     const handleLiveHelp = async () => {
         if (!user) return;
-        // Wait for checkout logic or redirect? User asked for dynamic URL update.
-        // If they bought it, we record it.
-        await supabaseService.createCheckout(user.id, 'live_help');
 
-        const customUrl = await supabaseService.getLiveHelpUrl();
-        if (customUrl) {
-            window.open(customUrl, '_blank');
-        } else {
-            const waNumber = await supabaseService.getLiveHelpConfig();
-            const message = encodeURIComponent(`Olá! Acabei de contratar o Auxílio ao Vivo para verificação de BM. Meu e-mail é ${user.email}.`);
-            window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+        try {
+            // Get the destination URL from config
+            const customUrl = await supabaseService.getLiveHelpUrl();
+
+            if (customUrl) {
+                // If admin set a custom URL (e.g. Kiwify link), go there directly
+                window.location.href = customUrl;
+            } else {
+                // Fallback to WhatsApp if no URL is configured
+                const waNumber = await supabaseService.getLiveHelpConfig();
+                const message = encodeURIComponent(`Olá! Acabei de contratar o Auxílio ao Vivo para verificação de BM. Meu e-mail é ${user.email}.`);
+                window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+            }
+        } catch (error) {
+            console.error("Error redirecting to Live Help:", error);
+            // Fallback for safety
+            window.open('https://wa.me/5511999999999', '_blank');
         }
+
         setShowLiveHelp(false);
     };
 
