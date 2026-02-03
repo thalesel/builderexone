@@ -1,4 +1,3 @@
-
 import { supabase } from '../lib/supabase';
 import { Site, SupportNumber, UserProfile } from '../types';
 import { APP_CONFIG } from '../constants';
