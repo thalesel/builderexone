@@ -84,6 +84,17 @@ export const supabaseService = {
         return cleanNum;
     },
 
+    getLiveHelpUrl: async () => {
+        const { data } = await supabase.from('app_config').select('value').eq('key', 'live_help_url').single();
+        return data?.value || '';
+    },
+
+    updateLiveHelpUrl: async (url: string) => {
+        const { error } = await supabase.from('app_config').upsert({ key: 'live_help_url', value: url });
+        if (error) throw error;
+        return url;
+    },
+
     // --- Checkout ---
     createCheckout: async (userId: string, type: 'plano' | 'slot' | 'live_help') => {
         // Call Edge Function

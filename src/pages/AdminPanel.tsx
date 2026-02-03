@@ -10,6 +10,7 @@ export const AdminPanel = () => {
     const [sitesList, setSitesList] = useState<Site[]>([]);
     const [supportList, setSupportList] = useState<SupportNumber[]>([]);
     const [liveHelpNumber, setLiveHelpNumber] = useState('');
+    const [liveHelpUrl, setLiveHelpUrl] = useState('');
     const [loading, setLoading] = useState(true);
 
     const [newName, setNewName] = useState('');
@@ -20,12 +21,14 @@ export const AdminPanel = () => {
             supabaseService.getAllUsers(),
             supabaseService.getAllSites(),
             supabaseService.getSupportNumbers(),
-            supabaseService.getLiveHelpConfig()
-        ]).then(([u, s, sn, lhn]) => {
+            supabaseService.getLiveHelpConfig(),
+            supabaseService.getLiveHelpUrl()
+        ]).then(([u, s, sn, lhn, lhu]) => {
             setUsersList(u);
             setSitesList(s);
             setSupportList(sn);
-            setLiveHelpNumber(lhn);
+            setLiveHelpNumber(lhn || '');
+            setLiveHelpUrl(lhu || '');
             setLoading(false);
         });
     }, []);
@@ -54,6 +57,11 @@ export const AdminPanel = () => {
         alert("Número de Auxílio ao Vivo atualizado!");
     };
 
+    const handleUpdateLiveHelpUrl = async () => {
+        await supabaseService.updateLiveHelpUrl(liveHelpUrl);
+        alert("URL de Auxílio ao Vivo atualizada!");
+    };
+
     if (loading) return <div className="py-20 text-center uppercase tracking-widest text-[9px] font-black text-zinc-400">Autenticando Módulo Admin...</div>;
 
     return (
@@ -64,18 +72,33 @@ export const AdminPanel = () => {
             </header>
 
             {/* Global Live Help Configuration */}
-            <section className="bg-white border border-zinc-200 p-8 rounded-[2rem] shadow-sm">
-                <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6">Configuração: Auxílio ao Vivo</h3>
-                <div className="flex flex-col md:flex-row items-end gap-4">
-                    <Input
-                        label="WhatsApp de Redirecionamento (Live Help)"
-                        value={liveHelpNumber}
-                        onChange={setLiveHelpNumber}
-                        placeholder="Ex: 5511999999999"
-                    />
-                    <Button onClick={handleUpdateLiveHelp} className="mb-5 px-10 h-[50px]">Salvar Número</Button>
+            <section className="bg-white border border-zinc-200 p-8 rounded-[2rem] shadow-sm grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6">WhatsApp: Auxílio ao Vivo</h3>
+                    <div className="flex flex-col gap-4">
+                        <Input
+                            label="WhatsApp de Redirecionamento"
+                            value={liveHelpNumber}
+                            onChange={setLiveHelpNumber}
+                            placeholder="Ex: 5511999999999"
+                        />
+                        <Button onClick={handleUpdateLiveHelp} className="px-10 h-[50px]">Salvar Número</Button>
+                        <p className="text-[9px] text-zinc-400 uppercase font-black tracking-widest">Número legado para fallback de WhatsApp.</p>
+                    </div>
                 </div>
-                <p className="text-[9px] text-zinc-400 uppercase font-black tracking-widest mt-2">Este número será usado quando o usuário contratar o Auxílio ao Vivo no Dashboard.</p>
+                <div>
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6">URL: Auxílio ao Vivo</h3>
+                    <div className="flex flex-col gap-4">
+                        <Input
+                            label="URL de Redirecionamento Principal"
+                            value={liveHelpUrl}
+                            onChange={setLiveHelpUrl}
+                            placeholder="Ex: https://checkout..."
+                        />
+                        <Button onClick={handleUpdateLiveHelpUrl} className="px-10 h-[50px]">Salvar URL</Button>
+                        <p className="text-[9px] text-zinc-400 uppercase font-black tracking-widest">Esta URL será usada prioritariamente no botão do Dashboard.</p>
+                    </div>
+                </div>
             </section>
 
             {/* Support Numbers Management */}

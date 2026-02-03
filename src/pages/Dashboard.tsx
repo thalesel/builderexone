@@ -26,12 +26,19 @@ export const Dashboard = () => {
 
     const handleLiveHelp = async () => {
         if (!user) return;
+        // Wait for checkout logic or redirect? User asked for dynamic URL update.
+        // If they bought it, we record it.
         await supabaseService.createCheckout(user.id, 'live_help');
-        const waNumber = await supabaseService.getLiveHelpConfig();
-        setShowLiveHelp(false);
 
-        const message = encodeURIComponent(`Olá! Acabei de contratar o Auxílio ao Vivo para verificação de BM. Meu e-mail é ${user.email}.`);
-        window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+        const customUrl = await supabaseService.getLiveHelpUrl();
+        if (customUrl) {
+            window.open(customUrl, '_blank');
+        } else {
+            const waNumber = await supabaseService.getLiveHelpConfig();
+            const message = encodeURIComponent(`Olá! Acabei de contratar o Auxílio ao Vivo para verificação de BM. Meu e-mail é ${user.email}.`);
+            window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+        }
+        setShowLiveHelp(false);
     };
 
     const activeSitesCount = sites.filter(s => s.ativo).length;
