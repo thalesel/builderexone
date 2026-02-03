@@ -17,12 +17,15 @@ export const LoginPage = () => {
         setLoading(true);
         setError('');
         try {
+            const cleanEmail = email.trim();
+            const cleanPass = password.trim();
+
             if (isRegistering) {
-                await signUp(email, password);
+                await signUp(cleanEmail, cleanPass);
                 alert('Cadastro realizado! Verifique seu e-mail ou faça login.');
                 setIsRegistering(false);
             } else {
-                await signIn(email, password);
+                await signIn(cleanEmail, cleanPass);
             }
         } catch (err: any) {
             setError(err.message);
@@ -48,7 +51,14 @@ export const LoginPage = () => {
                 {error && <div className="bg-red-50 text-red-500 text-xs p-3 rounded-lg mb-4 font-bold">{error}</div>}
 
                 <form onSubmit={handleAuth} className="space-y-4">
-                    <Input label="E-mail de acesso" value={email} onChange={setEmail} placeholder="email@exemplo.com" required />
+                    <Input
+                        label="E-mail de acesso"
+                        value={email}
+                        onChange={setEmail}
+                        placeholder="email@exemplo.com"
+                        type="email"
+                        required
+                    />
                     <div className="flex flex-col gap-1.5 mb-6">
                         <label className="text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 ml-1">Senha</label>
                         <input
