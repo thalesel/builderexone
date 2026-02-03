@@ -28,11 +28,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 .single();
 
             if (data) {
+                console.log("Profile found:", data);
                 setUser(data);
             } else {
-                // If profile doesn't exist (e.g. first login after signup if trigger didn't run), use fallback
-                //Ideally, we insert it here or wait for trigger.
-                // For this demo, let's just set local state, but in production we want a row in 'profiles'.
+                console.log("Profile not found, using fallback for:", email);
                 setUser({ id, email, role: 'user', slots_total: 0, slots_usados: 0 });
             }
         } catch (error) {
