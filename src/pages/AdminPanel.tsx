@@ -53,13 +53,23 @@ export const AdminPanel = () => {
     };
 
     const handleUpdateLiveHelp = async () => {
-        await supabaseService.updateLiveHelpConfig(liveHelpNumber);
-        alert("Número de Auxílio ao Vivo atualizado!");
+        try {
+            await supabaseService.updateLiveHelpConfig(liveHelpNumber);
+            alert("Número de Auxílio ao Vivo atualizado!");
+        } catch (error: any) {
+            console.error("Error saving number:", error);
+            alert("Erro ao salvar número: " + (error.message || "Erro desconhecido"));
+        }
     };
 
     const handleUpdateLiveHelpUrl = async () => {
-        await supabaseService.updateLiveHelpUrl(liveHelpUrl);
-        alert("URL de Auxílio ao Vivo atualizada!");
+        try {
+            await supabaseService.updateLiveHelpUrl(liveHelpUrl);
+            alert("URL de Auxílio ao Vivo atualizada!");
+        } catch (error: any) {
+            console.error("Error saving URL:", error);
+            alert("Erro ao salvar URL: " + (error.message || "Erro desconhecido"));
+        }
     };
 
     if (loading) return <div className="py-20 text-center uppercase tracking-widest text-[9px] font-black text-zinc-400">Autenticando Módulo Admin...</div>;
