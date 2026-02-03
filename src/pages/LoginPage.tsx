@@ -134,7 +134,9 @@ export const LoginPage = () => {
 
                             <Button
                                 type="submit"
+                                variant="secondary"
                                 className="w-full py-4 rounded-xl text-xs uppercase font-black tracking-widest bg-black text-white hover:bg-zinc-900 active:scale-95 transition-all mt-4 border-none shadow-xl shadow-zinc-200"
+                                style={{ color: '#ffffff' }}
                                 disabled={loading}
                             >
                                 {loading ? 'Aguarde...' : isRegistering ? 'Cadastrar Agora' : 'Entrar no Sistema'}
