@@ -38,7 +38,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                         rel="noopener noreferrer"
                         className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-400 hover:text-black hover:bg-zinc-50"
                     >
-                        <ICONS.WhatsApp /> WHATSAPP
+                        <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain" /> WHATSAPP
                     </a>
                     <a
                         href="https://discord.gg/EK8su2XQ"
@@ -46,7 +46,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                         rel="noopener noreferrer"
                         className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-400 hover:text-black hover:bg-zinc-50"
                     >
-                        <ICONS.Discord /> DISCORD
+                        <img src="/discord.png" alt="Discord" className="w-5 h-5 object-contain" /> DISCORD
                     </a>
                     {isAdmin && (
                         <Link to="/admin" className={navLinkClass('/admin')}>
@@ -95,7 +95,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg font-black transition-all text-[10px] uppercase tracking-widest text-zinc-400"
                 >
-                    <ICONS.WhatsApp />
+                    <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain" />
                     <span>Whats</span>
                 </a>
                 <a
@@ -104,7 +104,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg font-black transition-all text-[10px] uppercase tracking-widest text-zinc-400"
                 >
-                    <ICONS.Discord />
+                    <img src="/discord.png" alt="Discord" className="w-5 h-5 object-contain" />
                     <span>Discord</span>
                 </a>
                 {isAdmin && (
