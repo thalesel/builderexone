@@ -15,7 +15,10 @@ export const PlansPage = () => {
         const baseUrl = type === 'plano' ? APP_CONFIG.KIWIFY_LINKS.BASE_PLAN : APP_CONFIG.KIWIFY_LINKS.EXTRA_SLOT;
         const url = `${baseUrl}?email=${encodeURIComponent(user.email)}`;
 
-        window.open(url, '_blank');
+        // Open in same tab or new tab depending on preference. 
+        // window.open might be blocked. try direct navigation or ensure '_blank' works
+        // Better yet: use an anchor tag in the UI, but for now let's force location change for debugging
+        window.location.href = url;
     };
 
     if (!user) return null;
