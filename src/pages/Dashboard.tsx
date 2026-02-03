@@ -70,10 +70,10 @@ export const Dashboard = () => {
 
     return (
         <div className="space-y-8 md:space-y-12">
-            <header className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-zinc-200 pb-8">
+            <header className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-zinc-800 pb-8">
                 <div>
-                    <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase">Painel Geral</h2>
-                    <p className="text-zinc-400 uppercase tracking-widest text-[9px] font-black mt-2">Controle de aplicações</p>
+                    <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase italic">Painel Geral</h2>
+                    <p className="text-zinc-500 uppercase tracking-widest text-[9px] font-black mt-2">Controle de aplicações em tempo real</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
                     <Button onClick={() => setShowLiveHelp(true)} variant="live" className="text-[10px] w-full sm:w-auto py-3">
@@ -93,13 +93,13 @@ export const Dashboard = () => {
             />
 
             {(isLimitReached || hasNoPlan) && (
-                <div className="border border-black p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white shadow-lg animate-in slide-in-from-top duration-500">
+                <div className="border border-white/10 p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 bg-zinc-900 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-700">
                     <div className="flex items-center gap-5">
-                        <div className="bg-black text-white p-3 rounded-lg shrink-0 shadow-md">
+                        <div className="bg-white text-black p-4 rounded-xl shrink-0 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                             <ICONS.CreditCard />
                         </div>
                         <div>
-                            <p className="text-sm font-black uppercase tracking-tight">
+                            <p className="text-sm font-black uppercase tracking-tight text-white">
                                 {hasNoPlan ? "Ative sua conta" : "Aumente seu limite"}
                             </p>
                             <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-1">
@@ -107,7 +107,7 @@ export const Dashboard = () => {
                             </p>
                         </div>
                     </div>
-                    <Button variant="primary" onClick={() => navigate('/planos')} className="text-[10px] px-8 rounded-xl shadow-none">
+                    <Button variant="accent" onClick={() => navigate('/planos')} className="text-[10px] px-8 rounded-xl shrink-0">
                         {hasNoPlan ? "Liberar 3 Sites" : "Comprar mais slots"}
                     </Button>
                 </div>
@@ -115,27 +115,28 @@ export const Dashboard = () => {
 
             {/* Stats Cards - Compact on mobile, grid on desktop */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                <div className="bg-white border border-zinc-200 p-6 md:p-8 rounded-lg shadow-sm flex flex-col justify-between">
-                    <p className="text-[9px] uppercase tracking-widest font-black text-zinc-400 mb-4">Slots Utilizados</p>
-                    <div className="flex items-baseline gap-1">
-                        <span className="text-4xl md:text-5xl font-black tracking-tighter">{user.slots_usados}</span>
-                        <span className="text-xl text-zinc-300 font-black">/ {user.role === 'admin' ? '∞' : user.slots_total}</span>
+                <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                    <p className="text-[9px] uppercase tracking-widest font-black text-zinc-500 mb-6">Slots Utilizados</p>
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-4xl md:text-5xl font-black tracking-tighter text-white">{user.slots_usados}</span>
+                        <span className="text-xl text-zinc-700 font-black">/ {user.role === 'admin' ? '∞' : user.slots_total}</span>
                     </div>
                 </div>
-                <div className="bg-white border border-zinc-200 p-6 md:p-8 rounded-lg shadow-sm flex flex-col justify-between">
-                    <p className="text-[9px] uppercase tracking-widest font-black text-zinc-400 mb-4">Sites Ativos</p>
+                <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                    <p className="text-[9px] uppercase tracking-widest font-black text-zinc-500 mb-6">Instâncias Online</p>
                     <div>
-                        <span className="text-4xl md:text-5xl font-black tracking-tighter">{activeSitesCount}</span>
-                        <p className="text-[8px] text-zinc-400 mt-2 uppercase font-black tracking-widest">Publicados na rede</p>
+                        <span className="text-4xl md:text-5xl font-black tracking-tighter text-white">{activeSitesCount}</span>
+                        <p className="text-[8px] text-zinc-600 mt-2 uppercase font-black tracking-widest">Publicados na rede</p>
                     </div>
                 </div>
-                <div className="col-span-2 md:col-span-1 p-6 md:p-8 bg-black text-white rounded-lg shadow-xl border border-black flex flex-col justify-between">
-                    <p className="text-[9px] uppercase tracking-widest font-black text-zinc-500 mb-4">Status da Rede</p>
-                    <div>
-                        <p className="text-lg font-black uppercase tracking-tighter">{user.slots_total > 0 ? 'Plano Ativo' : 'Pendente'}</p>
+                <div className="col-span-2 md:col-span-1 p-6 md:p-8 bg-white text-black rounded-2xl shadow-[0_0_30px_rgba(255,255,255,0.05)] border border-white flex flex-col justify-between group overflow-hidden relative">
+                    <div className="absolute top-[-20%] right-[-10%] w-32 h-32 bg-zinc-200/50 rounded-full blur-[40px] group-hover:scale-150 transition-transform duration-700"></div>
+                    <p className="text-[9px] uppercase tracking-widest font-black text-zinc-400 mb-6 relative z-10">Status do Sistema</p>
+                    <div className="relative z-10">
+                        <p className="text-lg font-black uppercase tracking-tighter italic">{user.slots_total > 0 ? 'Plano Vitalício' : 'Aguardando'}</p>
                         <div className="mt-3 flex items-center gap-2">
-                            <span className={`w-2 h-2 rounded-full animate-pulse ${user.slots_total > 0 ? 'bg-green-500' : 'bg-zinc-500'}`}></span>
-                            <span className="text-[9px] font-black uppercase tracking-widest text-zinc-400">Builder v2.5 Online</span>
+                            <span className={`w-2 h-2 rounded-full animate-pulse ${user.slots_total > 0 ? 'bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]' : 'bg-red-500 shadow-[0_0_10px_rgba(239,44,44,0.5)]'}`}></span>
+                            <span className="text-[9px] font-black uppercase tracking-widest text-zinc-500">Builder Engine v2.5</span>
                         </div>
                     </div>
                 </div>
@@ -150,49 +151,50 @@ export const Dashboard = () => {
 
                 <div className="grid grid-cols-1 gap-4">
                     {loading ? (
-                        <div className="py-20 text-center flex flex-col items-center gap-4">
-                            <div className="w-8 h-8 border-4 border-black border-t-transparent rounded-full animate-spin"></div>
-                            <p className="uppercase tracking-widest text-[9px] font-black text-zinc-400">Carregando Instâncias...</p>
+                        <div className="py-20 text-center flex flex-col items-center gap-6">
+                            <div className="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                            <p className="uppercase tracking-widest text-[9px] font-black text-zinc-600">Sincronizando Banco de Dados...</p>
                         </div>
                     ) : sites.length === 0 ? (
-                        <div className="border-2 border-dashed border-zinc-200 p-16 md:p-24 text-center rounded-lg bg-white/50 group hover:border-black transition-all">
-                            <div className="bg-zinc-100 w-12 h-12 rounded-lg mx-auto mb-6 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all">
+                        <div className="border border-dashed border-zinc-800 p-16 md:p-24 text-center rounded-3xl bg-zinc-900/30 group hover:border-zinc-500 transition-all duration-500">
+                            <div className="bg-zinc-800 w-16 h-16 rounded-2xl mx-auto mb-8 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
                                 <ICONS.Plus />
                             </div>
-                            <p className="text-zinc-400 uppercase tracking-widest text-[10px] font-black">Nenhum projeto iniciado</p>
-                            <Button variant="outline" className="mt-8 mx-auto rounded-xl px-10" onClick={() => navigate('/create')}>Criar Primeiro Site</Button>
+                            <p className="text-zinc-500 uppercase tracking-widest text-[10px] font-black">Nenhum projeto iniciado na sua conta</p>
+                            <Button variant="primary" className="mt-10 mx-auto rounded-xl px-12" onClick={() => navigate('/create')}>Criar Primeiro Site</Button>
                         </div>
                     ) : (
                         sites.map(site => (
-                            <div key={site.id} className="bg-white border border-zinc-200 p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-black transition-all rounded-lg shadow-sm hover:shadow-md group">
-                                <div className="flex-1">
-                                    <h4 className="text-xl font-black tracking-tighter uppercase group-hover:text-black">{site.razao_social}</h4>
-                                    <div className="flex items-center gap-2 mt-2">
-                                        <span className="text-[10px] font-mono text-zinc-400 bg-zinc-50 px-2 py-0.5 rounded border border-zinc-100">{site.dominio}</span>
+                            <div key={site.id} className="bg-zinc-900/40 backdrop-blur-sm border border-zinc-800 p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-zinc-700 hover:bg-zinc-900/60 transition-all duration-500 rounded-3xl group relative overflow-hidden">
+                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="flex-1 relative z-10">
+                                    <h4 className="text-2xl font-black tracking-tighter uppercase italic text-white group-hover:text-blue-400 transition-colors">{site.razao_social}</h4>
+                                    <div className="flex items-center gap-2 mt-3">
+                                        <span className="text-[10px] font-mono text-zinc-500 bg-black/40 px-3 py-1 rounded-lg border border-zinc-800/50">{site.dominio}</span>
                                     </div>
-                                    <div className="flex items-center gap-3 mt-5">
-                                        <span className={`w-2 h-2 rounded-full ${site.ativo ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]' : 'bg-zinc-200 border border-zinc-300'}`}></span>
-                                        <span className="text-[10px] uppercase font-black tracking-widest text-zinc-500">{site.ativo ? 'Online' : 'Suspenso'}</span>
+                                    <div className="flex items-center gap-3 mt-6">
+                                        <span className={`w-2 h-2 rounded-full ${site.ativo ? 'bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.6)]' : 'bg-zinc-800 border border-zinc-700'}`}></span>
+                                        <span className="text-[10px] uppercase font-black tracking-widest text-zinc-500">{site.ativo ? 'Server Online' : 'Server Suspenso'}</span>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap items-center gap-2 md:self-center">
+                                <div className="flex flex-wrap items-center gap-3 md:self-center relative z-10">
                                     <a
                                         href={`#/${site.slug}`}
                                         target="_blank"
-                                        className="h-11 min-w-[100px] flex items-center justify-center px-6 text-[10px] font-black uppercase tracking-widest border border-zinc-200 hover:border-black rounded-lg transition-all active:scale-95 bg-white"
+                                        className="h-12 min-w-[110px] flex items-center justify-center px-6 text-[10px] font-black uppercase tracking-widest border border-zinc-800 hover:border-white hover:bg-white hover:text-black rounded-xl transition-all active:scale-95 bg-transparent text-zinc-400"
                                     >
-                                        Visualizar
+                                        Acessar
                                     </a>
                                     <Button
                                         variant="secondary"
-                                        className="h-11 min-w-[120px] py-3 px-6 text-[10px] rounded-lg"
+                                        className="h-12 min-w-[130px] py-4 px-8 text-[10px] rounded-xl border border-zinc-800"
                                         onClick={() => navigate(`/edit/${site.id}`)}
                                     >
                                         Gerenciar
                                     </Button>
                                     <Button
                                         variant="outline"
-                                        className="h-11 w-11 p-0 flex items-center justify-center rounded-lg border-zinc-200 text-zinc-400 hover:border-red-500 hover:text-red-500 transition-all"
+                                        className="h-12 w-12 p-0 flex items-center justify-center rounded-xl border-zinc-800 text-zinc-600 hover:border-red-500/50 hover:bg-red-950/20 hover:text-red-500 transition-all"
                                         onClick={() => handleDeleteSite(site.id, site.razao_social)}
                                     >
                                         <ICONS.Trash />

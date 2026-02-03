@@ -116,12 +116,12 @@ export const SiteForm = () => {
     if (!user) return null;
 
     return (
-        <div className="space-y-8 md:space-y-12">
-            <header className="flex items-center gap-6">
-                <button onClick={() => navigate(-1)} className="p-3 bg-white border border-zinc-200 hover:border-black rounded-lg shadow-sm transition-all"><ICONS.ChevronLeft /></button>
+        <div className="space-y-12 max-w-5xl mx-auto">
+            <header className="flex items-center gap-8 border-b border-zinc-800 pb-8">
+                <button onClick={() => navigate(-1)} className="p-4 bg-zinc-900 border border-zinc-800 hover:border-white rounded-xl shadow-xl transition-all text-white"><ICONS.ChevronLeft /></button>
                 <div>
-                    <h2 className="text-2xl md:text-3xl font-black tracking-tighter uppercase">{existingSite ? 'Configurações' : 'Novo Projeto'}</h2>
-                    <p className="text-zinc-400 uppercase tracking-widest text-[9px] font-black mt-1">Editor de parâmetros</p>
+                    <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase italic text-white">{existingSite ? 'Configurações' : 'Novo Projeto'}</h2>
+                    <p className="text-zinc-500 uppercase tracking-widest text-[9px] font-black mt-2">Editor de parâmetros e publicação</p>
                 </div>
             </header>
 
@@ -194,9 +194,10 @@ export const SiteForm = () => {
                         ]
                     }
                 ].map((section, idx) => (
-                    <section key={idx} className="bg-white p-6 md:p-10 rounded-lg border border-zinc-100 shadow-sm">
-                        <div className="border-b border-black pb-3 mb-8">
-                            <h3 className="text-[10px] font-black uppercase tracking-[0.3em]">{section.title}</h3>
+                    <section key={idx} className="bg-zinc-900/40 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden group">
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div className="border-b border-zinc-800 pb-6 mb-10">
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 group-hover:text-white transition-colors">{section.title}</h3>
                         </div>
                         <div className={`grid grid-cols-1 ${section.isLarge ? 'gap-0' : 'md:grid-cols-2 gap-x-12 gap-y-2'}`}>
                             {section.fields.map((field) => (
@@ -225,9 +226,9 @@ export const SiteForm = () => {
                     </section>
                 ))}
 
-                <div className="flex flex-col md:flex-row justify-end gap-4 pt-8 md:pt-12 border-t border-zinc-200">
-                    <Button variant="secondary" className="w-full md:w-auto px-10 rounded-lg order-2 md:order-1" onClick={() => navigate('/dashboard')}>Cancelar</Button>
-                    <Button type="submit" className="w-full md:w-auto px-16 rounded-lg order-1 md:order-2" disabled={loading}>{loading ? 'Salvando...' : 'Confirmar'}</Button>
+                <div className="flex flex-col md:flex-row justify-end gap-6 pt-12 border-t border-zinc-800">
+                    <Button variant="secondary" className="w-full md:w-auto px-12 py-4 rounded-xl font-black uppercase tracking-widest order-2 md:order-1" onClick={() => navigate('/dashboard')}>Descartar</Button>
+                    <Button type="submit" className="w-full md:w-auto px-20 py-4 rounded-xl font-black uppercase tracking-widest order-1 md:order-2 shadow-[0_0_30px_rgba(255,255,255,0.05)]" disabled={loading}>{loading ? 'Sincronizando...' : 'Salvar Alterações'}</Button>
                 </div>
             </form>
         </div>

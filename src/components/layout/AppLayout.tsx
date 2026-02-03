@@ -11,17 +11,17 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
 
     const navLinkClass = (path: string) => {
         const isActive = location.pathname === path;
-        return `flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest ${isActive ? 'bg-black text-white shadow-md' : 'text-zinc-400 hover:text-black hover:bg-zinc-50'
+        return `flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-xl font-black transition-all text-[10px] md:text-sm uppercase tracking-widest ${isActive ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.05)]' : 'text-zinc-500 hover:text-white hover:bg-white/5'
             }`;
     };
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row bg-zinc-50">
+        <div className="min-h-screen flex flex-col md:flex-row bg-zinc-950 text-white font-sans">
             {/* Desktop Sidebar */}
-            <aside className="hidden md:flex w-64 bg-white border-r border-zinc-200 flex-col sticky top-0 h-screen">
-                <div className="p-8 border-b border-zinc-100 flex flex-col items-center justify-center gap-3">
-                    <img src="/logo.png" alt="Builder Exone" className="w-auto h-8" />
-                    <h1 className="text-lg font-black tracking-tighter uppercase text-center">
+            <aside className="hidden md:flex w-72 bg-zinc-900/50 backdrop-blur-xl border-r border-zinc-800/50 flex-col sticky top-0 h-screen">
+                <div className="p-8 border-b border-zinc-800/50 flex flex-col items-center justify-center gap-4">
+                    <img src="/logo.png" alt="Builder Exone" className="w-auto h-8 invert brightness-0" />
+                    <h1 className="text-xl font-black tracking-tighter uppercase text-center italic">
                         BUILDER EXONE
                     </h1>
                 </div>
@@ -36,7 +36,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                         href="https://chat.whatsapp.com/Ln98VLGI0mKIOWv1uLKcjU"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-400 hover:text-black hover:bg-zinc-50"
+                        className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-xl font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-500 hover:text-white hover:bg-white/5"
                     >
                         <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 object-contain" /> WHATSAPP
                     </a>
@@ -44,7 +44,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                         href="https://discord.gg/EK8su2XQ"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-400 hover:text-black hover:bg-zinc-50"
+                        className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-xl font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-500 hover:text-white hover:bg-white/5"
                     >
                         <img src="/discord.png" alt="Discord" className="w-5 h-5 object-contain" /> DISCORD
                     </a>
@@ -53,23 +53,23 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                             <ICONS.Users /> Admin
                         </Link>
                     )}
-                    <div className="mt-auto pt-8 border-t border-zinc-100 space-y-4">
-                        <div className="px-4">
-                            <p className="text-[9px] uppercase tracking-widest text-zinc-400 mb-1 font-black">Sessão Ativa</p>
-                            <p className="text-xs font-bold truncate text-zinc-600">{user.email}</p>
+                    <div className="mt-auto pt-8 border-t border-zinc-800/50 space-y-6">
+                        <div className="px-6 py-4 bg-white/5 rounded-2xl border border-white/5">
+                            <p className="text-[9px] uppercase tracking-widest text-zinc-500 mb-1 font-black">Sessão Ativa</p>
+                            <p className="text-xs font-bold truncate text-white/80">{user.email}</p>
                         </div>
-                        <Button variant="outline" className="w-full border-zinc-200 rounded-lg py-2" onClick={onLogout}>Sair</Button>
+                        <Button variant="outline" className="w-full border-zinc-800 rounded-xl py-3 text-[10px]" onClick={onLogout}>Encerrar Sessão</Button>
                     </div>
                 </nav>
             </aside>
 
             {/* Mobile Header */}
-            <header className="md:hidden flex items-center justify-between px-6 py-4 bg-white border-b border-zinc-200 sticky top-0 z-30">
+            <header className="md:hidden flex items-center justify-between px-6 py-5 bg-zinc-900 border-b border-zinc-800 sticky top-0 z-30">
                 <div className="flex items-center gap-3">
-                    <img src="/logo.png" alt="Builder Exone" className="h-6 w-auto" />
-                    <h1 className="text-sm font-black tracking-tighter uppercase">BUILDER EXONE</h1>
+                    <img src="/logo.png" alt="Builder Exone" className="h-6 w-auto invert brightness-0" />
+                    <h1 className="text-sm font-black tracking-tighter uppercase italic">BUILDER EXONE</h1>
                 </div>
-                <button onClick={onLogout} className="text-[10px] font-black uppercase tracking-widest text-zinc-400 border border-zinc-200 px-3 py-1.5 rounded-lg">Sair</button>
+                <button onClick={onLogout} className="text-[10px] font-black uppercase tracking-widest text-zinc-500 border border-zinc-800 px-4 py-2 rounded-xl bg-zinc-950">Sair</button>
             </header>
 
             {/* Main Content */}
@@ -80,7 +80,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
             </main>
 
             {/* Mobile Bottom Navigation */}
-            <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-200 px-4 py-2.5 flex justify-around items-center z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.03)] rounded-t-lg">
+            <nav className="md:hidden fixed bottom-4 left-4 right-4 bg-zinc-900/90 backdrop-blur-xl border border-white/5 px-6 py-3 flex justify-around items-center z-40 shadow-2xl rounded-2xl">
                 <Link to="/dashboard" className={navLinkClass('/dashboard')}>
                     <ICONS.Dashboard />
                     <span>Início</span>

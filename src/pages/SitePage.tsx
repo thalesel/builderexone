@@ -44,66 +44,73 @@ export const SitePage = () => {
     const mainSupport = supportNumbers.find(n => n.ativo);
 
     return (
-        <div className="bg-white text-black min-h-screen flex flex-col selection:bg-black selection:text-white relative font-sans">
+        <div className="bg-zinc-950 text-white min-h-screen flex flex-col selection:bg-white selection:text-black relative font-sans overflow-hidden">
+            {/* Dynamic Background Accents */}
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-800/5 rounded-full blur-[100px] pointer-events-none"></div>
+
             {/* Header: Razão Social */}
-            <header className="py-16 md:py-24 px-6 md:px-8 border-b border-zinc-100 bg-zinc-50/50">
+            <header className="py-24 md:py-40 px-6 md:px-8 border-b border-zinc-900/50 bg-inherit relative z-10">
                 <div className="max-w-5xl mx-auto">
-                    <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9] mb-4 break-words">{site.razao_social}</h1>
-                    <div className="h-1.5 w-24 bg-black"></div>
+                    <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-8 break-words italic animate-in fade-in slide-in-from-top-12 duration-1000">
+                        {site.razao_social}
+                    </h1>
+                    <div className="h-2 w-32 bg-white shadow-[0_0_20px_rgba(255,255,255,0.3)]"></div>
                 </div>
             </header>
 
             <main className="flex-1 max-w-5xl mx-auto w-full px-6 md:px-8 py-16 md:py-24 space-y-24 md:space-y-32">
                 {/* Bloco: Sobre a Empresa */}
-                <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
                     <div className="md:col-span-4">
-                        <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-300">Sobre a empresa</h2>
+                        <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-600 border-l-2 border-white pl-4">Manifesto</h2>
                     </div>
                     <div className="md:col-span-8">
-                        <p className="text-xl md:text-3xl font-bold tracking-tight leading-snug whitespace-pre-wrap">{site.sobre}</p>
+                        <p className="text-2xl md:text-4xl font-black tracking-tight leading-tight whitespace-pre-wrap text-white/90 italic">{site.sobre}</p>
                     </div>
                 </section>
 
                 {/* Bloco: Missão */}
-                <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+                <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
                     <div className="md:col-span-4">
-                        <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-300">Nossa Missão</h2>
+                        <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-600 border-l-2 border-white pl-4">Propósito</h2>
                     </div>
                     <div className="md:col-span-8">
-                        <div className="bg-zinc-50 p-8 md:p-12 rounded-lg border border-zinc-100">
-                            <p className="text-lg md:text-2xl font-bold text-zinc-600 italic tracking-tight leading-relaxed">"{site.missao}"</p>
+                        <div className="bg-zinc-900 border border-zinc-800 p-10 md:p-16 rounded-3xl shadow-2xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+                            <p className="text-xl md:text-3xl font-bold text-zinc-400 italic tracking-tight leading-relaxed relative z-10">“{site.missao}”</p>
                         </div>
                     </div>
                 </section>
 
                 {/* Bloco: Contato */}
-                <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 border-t border-zinc-100 pt-16 md:pt-24 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+                <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 border-t border-zinc-900 pt-24 md:pt-32 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
                     <div className="md:col-span-4">
-                        <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-300">Canais de Contato</h2>
+                        <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-600 border-l-2 border-white pl-4">Conexão</h2>
                     </div>
-                    <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-16">
                         <div>
-                            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-6">Informações Diretas</h3>
-                            <ul className="space-y-6 text-xl md:text-2xl font-black tracking-tighter uppercase">
-                                <li className="flex items-center gap-4">
-                                    <span className="w-1.5 h-1.5 bg-black rounded-full"></span>
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 mb-10">Diretoria & Vendas</h3>
+                            <ul className="space-y-8 text-2xl md:text-4xl font-black tracking-tighter uppercase italic">
+                                <li className="flex items-center gap-5 hover:text-blue-500 transition-colors pointer-events-none">
+                                    <span className="w-2 h-2 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"></span>
                                     {site.telefones}
                                 </li>
-                                <li className="flex items-center gap-4">
-                                    <span className="w-1.5 h-1.5 bg-black rounded-full"></span>
+                                <li className="flex items-center gap-5 hover:text-blue-500 transition-colors pointer-events-none">
+                                    <span className="w-2 h-2 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"></span>
                                     <span className="break-all">{site.email}</span>
                                 </li>
-                                <li className="text-zinc-300 text-sm font-bold tracking-widest border-t border-zinc-50 pt-4">CNPJ: {site.cnpj}</li>
+                                <li className="text-zinc-700 text-[10px] font-black tracking-[0.2em] border-t border-zinc-900 pt-8 not-italic">CNPJ: {site.cnpj}</li>
                             </ul>
                         </div>
-                        <div className="space-y-4">
-                            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-6">Redes Digitais</h3>
+                        <div className="space-y-6">
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 mb-10">Presença Digital</h3>
                             {site.whatsapp && (
                                 <a
                                     href={`https://wa.me/${site.whatsapp.replace(/\D/g, '')}`}
-                                    className="flex items-center justify-center gap-3 w-full text-center py-4 border-2 border-black text-black text-[10px] uppercase font-black tracking-[0.2em] hover:bg-black hover:text-white transition-all rounded-lg active:scale-95 shadow-sm"
+                                    className="flex items-center justify-center gap-4 w-full text-center py-5 border border-zinc-800 text-white text-[10px] uppercase font-black tracking-[0.3em] hover:bg-white hover:text-black transition-all rounded-2xl active:scale-95 shadow-xl bg-zinc-900/50 backdrop-blur-sm"
                                 >
-                                    WhatsApp Business
+                                    WhatsApp Connect
                                 </a>
                             )}
                             {site.instagram && (
@@ -111,9 +118,9 @@ export const SitePage = () => {
                                     href={`https://instagram.com/${site.instagram.replace('@', '')}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-3 w-full text-center py-4 bg-zinc-900 text-white text-[10px] uppercase font-black tracking-[0.2em] hover:bg-black transition-all rounded-lg active:scale-95 shadow-md"
+                                    className="flex items-center justify-center gap-4 w-full text-center py-5 bg-white text-black text-[10px] uppercase font-black tracking-[0.3em] hover:bg-zinc-200 transition-all rounded-2xl active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
                                 >
-                                    Instagram Oficial
+                                    Instagram Profile
                                 </a>
                             )}
                         </div>
@@ -136,14 +143,14 @@ export const SitePage = () => {
                 </a>
             )}
 
-            <footer className="py-16 md:py-20 px-6 md:px-8 text-center border-t border-zinc-100 bg-zinc-50 font-black uppercase tracking-widest text-[9px]">
-                <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-                    <p className="text-zinc-400 max-w-xs leading-relaxed">{site.rodape}</p>
-                    <div className="flex items-center gap-4 px-6 py-3 bg-white border border-zinc-200 rounded-lg shadow-sm">
-                        <p className="text-zinc-300">By</p>
-                        <div className="flex items-center gap-2">
-                            <ICONS.Logo className="w-4 h-4 text-black" />
-                            <p className="text-black">Builder EXONE</p>
+            <footer className="py-24 md:py-32 px-6 md:px-8 text-center border-t border-zinc-900 bg-black font-black uppercase tracking-widest text-[9px] relative z-10">
+                <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+                    <p className="text-zinc-600 max-w-xs leading-relaxed italic">{site.rodape}</p>
+                    <div className="flex items-center gap-6 px-8 py-4 bg-zinc-900/50 border border-zinc-800 rounded-2xl shadow-2xl backdrop-blur-xl group hover:border-white transition-all">
+                        <p className="text-zinc-700 group-hover:text-zinc-500 transition-colors">Powered by</p>
+                        <div className="flex items-center gap-3">
+                            <img src="/logo.png" alt="" className="w-5 h-5 invert brightness-0" />
+                            <p className="text-white tracking-tighter italic">Builder EXONE</p>
                         </div>
                     </div>
                 </div>
