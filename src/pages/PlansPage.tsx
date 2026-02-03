@@ -8,10 +8,14 @@ import { useAuth } from '../context/AuthContext';
 export const PlansPage = () => {
     const { user, refreshProfile } = useAuth();
 
-    const handleBuy = async (type: 'plano' | 'slot') => {
+    const handleBuy = (type: 'plano' | 'slot') => {
         if (!user) return;
-        await supabaseService.createCheckout(user.id, type);
-        refreshProfile();
+
+        // Construct URL with email pre-fill if possible (Kiwify supports ?email=)
+        const baseUrl = type === 'plano' ? APP_CONFIG.KIWIFY_LINKS.BASE_PLAN : APP_CONFIG.KIWIFY_LINKS.EXTRA_SLOT;
+        const url = `${baseUrl}?email=${encodeURIComponent(user.email)}`;
+
+        window.open(url, '_blank');
     };
 
     if (!user) return null;

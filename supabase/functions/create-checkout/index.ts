@@ -41,10 +41,8 @@ serve(async (req) => {
                 {
                     price_data: {
                         currency: 'brl',
-                        product_data: {
-                            name: type === 'plano' ? 'Combo Inicial (3 Slots)' : (type === 'slot' ? 'Slot Extra' : 'Auxílio ao Vivo'),
-                        },
-                        unit_amount: type === 'plano' ? 29700 : (type === 'slot' ? 9700 : 2000), // Hardcoded for demo
+                        product: type === 'plano' ? 'prod_TuJ1ALgZ3M7YEQ' : (type === 'slot' ? 'prod_TuJ12fk2eTypgo' : 'prod_live_help_placeholder'),
+                        unit_amount: type === 'plano' ? 2000 : (type === 'slot' ? 500 : 2000),
                     },
                     quantity: 1,
                 },
