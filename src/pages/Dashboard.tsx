@@ -49,6 +49,18 @@ export const Dashboard = () => {
         setShowLiveHelp(false);
     };
 
+    const handleDeleteSite = async (id: string, name: string) => {
+        if (!confirm(`Tem certeza que deseja excluir o site "${name}"? Esta ação não pode ser desfeita.`)) return;
+
+        try {
+            await supabaseService.deleteSite(id);
+            setSites(sites.filter(s => s.id !== id));
+            refreshProfile();
+        } catch (error: any) {
+            alert("Erro ao excluir site: " + error.message);
+        }
+    };
+
     const activeSitesCount = sites.filter(s => s.ativo).length;
 
     if (!user) return null; // Should not happen due to PrivateRoute
@@ -163,9 +175,28 @@ export const Dashboard = () => {
                                         <span className="text-[10px] uppercase font-black tracking-widest text-zinc-500">{site.ativo ? 'Online' : 'Suspenso'}</span>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 md:self-center">
-                                    <a href={`#/site/${site.slug}`} target="_blank" className="flex-1 md:flex-none text-center px-6 py-3 text-[10px] font-black uppercase tracking-widest border border-zinc-200 hover:border-black rounded-xl transition-all active:scale-95">Preview</a>
-                                    <Button variant="secondary" className="flex-1 md:flex-none py-3 px-6 text-[10px] rounded-xl" onClick={() => navigate(`/edit/${site.id}`)}>Gerenciar</Button>
+                                <div className="flex flex-wrap items-center gap-2 md:self-center">
+                                    <a
+                                        href={`#/${site.slug}`}
+                                        target="_blank"
+                                        className="h-11 min-w-[100px] flex items-center justify-center px-6 text-[10px] font-black uppercase tracking-widest border border-zinc-200 hover:border-black rounded-lg transition-all active:scale-95 bg-white"
+                                    >
+                                        Visualizar
+                                    </a>
+                                    <Button
+                                        variant="secondary"
+                                        className="h-11 min-w-[120px] py-3 px-6 text-[10px] rounded-lg"
+                                        onClick={() => navigate(`/edit/${site.id}`)}
+                                    >
+                                        Gerenciar
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        className="h-11 w-11 p-0 flex items-center justify-center rounded-lg border-zinc-200 text-zinc-400 hover:border-red-500 hover:text-red-500 transition-all"
+                                        onClick={() => handleDeleteSite(site.id, site.razao_social)}
+                                    >
+                                        <ICONS.Trash />
+                                    </Button>
                                 </div>
                             </div>
                         ))

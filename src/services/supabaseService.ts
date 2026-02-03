@@ -66,6 +66,11 @@ export const supabaseService = {
         await supabase.from('sites').update({ ativo: status }).eq('id', siteId);
     },
 
+    deleteSite: async (id: string) => {
+        const { error } = await supabase.from('sites').delete().eq('id', id);
+        if (error) throw error;
+    },
+
     // --- Support Numbers ---
     getSupportNumbers: async () => {
         const { data } = await supabase.from('support_numbers').select('*');
