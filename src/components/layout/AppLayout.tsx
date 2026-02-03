@@ -20,7 +20,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
             {/* Desktop Sidebar */}
             <aside className="hidden md:flex w-72 bg-zinc-900/50 backdrop-blur-xl border-r border-zinc-800/50 flex-col sticky top-0 h-screen">
                 <div className="p-8 border-b border-zinc-800/50 flex flex-row items-center justify-start gap-3">
-                    <img src="/LOGO.png" alt="Builder Exone" className="w-auto h-8 brightness-0 invert" />
+                    <img src="/LOGO.png?v=2" alt="Builder Exone" className="w-auto h-8 brightness-0 invert" />
                     <h1 className="text-xl font-black tracking-tighter uppercase italic">
                         BUILDER EXONE
                     </h1>
@@ -66,7 +66,7 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
             {/* Mobile Header */}
             <header className="md:hidden flex items-center justify-between px-6 py-5 bg-zinc-900 border-b border-zinc-800 sticky top-0 z-30">
                 <div className="flex items-center gap-3">
-                    <img src="/LOGO.png" alt="Builder Exone" className="h-6 w-auto invert brightness-0" />
+                    <img src="/LOGO.png?v=2" alt="Builder Exone" className="h-6 w-auto brightness-0 invert" />
                     <h1 className="text-sm font-black tracking-tighter uppercase italic">BUILDER EXONE</h1>
                 </div>
                 <button onClick={onLogout} className="text-[10px] font-black uppercase tracking-widest text-zinc-500 border border-zinc-800 px-4 py-2 rounded-xl bg-zinc-950">Sair</button>

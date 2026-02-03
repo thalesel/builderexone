@@ -63,7 +63,7 @@ export const LoginPage = () => {
 
                     <div className="relative z-10 p-16 flex flex-col justify-between h-full w-full">
                         <div className="flex items-center gap-3">
-                            <img src="/LOGO.png" alt="" className="h-8 w-auto brightness-0 invert" />
+                            <img src="/LOGO.png?v=2" alt="" className="h-8 w-auto brightness-0 invert" />
                             <span className="text-white font-black tracking-tighter text-xl uppercase italic">BUILDER EXONE</span>
                         </div>
 
@@ -83,7 +83,7 @@ export const LoginPage = () => {
                 <div className="flex-1 p-8 md:p-16 flex flex-col justify-center bg-white text-zinc-950">
                     {/* Mobile Header (Hidden on PC) */}
                     <div className="md:hidden text-center mb-12">
-                        <img src="/LOGO.png" alt="" className="h-16 w-auto mx-auto mb-6" />
+                        <img src="/LOGO.png?v=2" alt="" className="h-16 w-auto mx-auto mb-6" />
                         <h1 className="text-3xl font-black tracking-tighter uppercase italic" style={{ color: '#000000' }}>BUILDER EXONE</h1>
                         <div className="h-1 w-12 bg-black mx-auto mt-4"></div>
                     </div>
