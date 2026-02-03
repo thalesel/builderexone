@@ -19,9 +19,9 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
         <div className="min-h-screen flex flex-col md:flex-row bg-zinc-950 text-white font-sans">
             {/* Desktop Sidebar */}
             <aside className="hidden md:flex w-72 bg-zinc-900/50 backdrop-blur-xl border-r border-zinc-800/50 flex-col sticky top-0 h-screen">
-                <div className="p-8 border-b border-zinc-800/50 flex flex-col items-center justify-center gap-4">
-                    <img src="/LOGO.png" alt="Builder Exone" className="w-auto h-8 invert brightness-0" />
-                    <h1 className="text-xl font-black tracking-tighter uppercase text-center italic">
+                <div className="p-8 border-b border-zinc-800/50 flex flex-row items-center justify-start gap-3">
+                    <img src="/LOGO.png" alt="Builder Exone" className="w-auto h-8 brightness-0 invert" />
+                    <h1 className="text-xl font-black tracking-tighter uppercase italic">
                         BUILDER EXONE
                     </h1>
                 </div>
