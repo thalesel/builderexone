@@ -32,6 +32,14 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                     <Link to="/planos" className={navLinkClass('/planos')}>
                         <ICONS.CreditCard /> Planos
                     </Link>
+                    <a
+                        href="https://chat.whatsapp.com/Ln98VLGI0mKIOWv1uLKcjU"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-400 hover:text-black hover:bg-zinc-50"
+                    >
+                        <ICONS.Club /> Club X1
+                    </a>
                     {isAdmin && (
                         <Link to="/admin" className={navLinkClass('/admin')}>
                             <ICONS.Users /> Admin
@@ -73,6 +81,15 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                     <ICONS.CreditCard />
                     <span>Planos</span>
                 </Link>
+                <a
+                    href="https://chat.whatsapp.com/Ln98VLGI0mKIOWv1uLKcjU"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg font-black transition-all text-[10px] uppercase tracking-widest text-zinc-400"
+                >
+                    <ICONS.Club />
+                    <span>Comunidade</span>
+                </a>
                 {isAdmin && (
                     <Link to="/admin" className={navLinkClass('/admin')}>
                         <ICONS.Users />
