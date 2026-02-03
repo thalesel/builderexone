@@ -36,12 +36,19 @@ export const LoginPage = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center md:bg-blue-600 bg-zinc-950 font-sans relative overflow-hidden">
-            {/* Dynamic Blue Background for the whole page */}
+            {/* Video Background */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-blue-500 rounded-full blur-[120px] animate-pulse opacity-60"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-blue-800 rounded-full blur-[140px] animate-pulse delay-1000 opacity-50"></div>
-                <div className="absolute top-[20%] right-[20%] w-[50%] h-[50%] bg-sky-400 rounded-full blur-[100px] animate-pulse delay-500 opacity-40"></div>
-                <div className="absolute inset-0 bg-blue-900/20 backdrop-blur-[2px]"></div>
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                >
+                    <source src="/Large.mp4" type="video/mp4" />
+                </video>
+                {/* Dark Overlay to help contrast */}
+                <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
             </div>
 
             <div className="bg-white w-full md:max-w-5xl md:h-[650px] md:shadow-[0_20px_50px_rgba(0,0,0,0.3)] md:rounded-3xl flex flex-col md:flex-row overflow-hidden min-h-screen md:min-h-fit relative z-10">
@@ -77,14 +84,14 @@ export const LoginPage = () => {
                     {/* Mobile Header (Hidden on PC) */}
                     <div className="md:hidden text-center mb-12">
                         <img src="/LOGO.png" alt="" className="h-16 w-auto mx-auto mb-6" />
-                        <h1 className="text-3xl font-black tracking-tighter uppercase italic text-black">BUILDER EXONE</h1>
+                        <h1 className="text-3xl font-black tracking-tighter uppercase italic" style={{ color: '#000000' }}>BUILDER EXONE</h1>
                         <div className="h-1 w-12 bg-black mx-auto mt-4"></div>
                     </div>
 
                     <div className="max-w-sm mx-auto w-full">
                         <div className="mb-10 text-left">
                             <div className="text-blue-600 text-3xl font-light mb-4">✱</div>
-                            <h2 className="text-3xl font-black tracking-tighter uppercase mb-2 italic text-black">
+                            <h2 className="text-3xl font-black tracking-tighter uppercase mb-2 italic" style={{ color: '#000000' }}>
                                 {isRegistering ? 'Criar Conta' : 'Acesse sua Conta'}
                             </h2>
                             <p className="text-zinc-500 text-sm font-medium">
@@ -125,7 +132,7 @@ export const LoginPage = () => {
                                 />
                             </div>
 
-                            <Button type="submit" className="w-full py-4 rounded-xl text-xs uppercase font-black tracking-widest bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-200 hover:shadow-none transition-all mt-4" disabled={loading}>
+                            <Button type="submit" className="w-full py-4 rounded-xl text-xs uppercase font-black tracking-widest bg-black hover:bg-zinc-900 text-white shadow-xl shadow-zinc-200 hover:shadow-none transition-all mt-4" disabled={loading}>
                                 {loading ? 'Aguarde...' : isRegistering ? 'Cadastrar Agora' : 'Entrar no Sistema'}
                             </Button>
                         </form>
