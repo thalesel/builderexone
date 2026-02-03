@@ -54,5 +54,11 @@ export const ICONS = {
   ),
   Club: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M15.45 8a3.5 3.5 0 1 0-3.5 3.5L12 11.5" /><path d="M22 10h-6" /><path d="M19 7v6" /></svg>
+  ),
+  WhatsApp: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z" /><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" /><path d="M14 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" /><path d="M9.5 13a3.5 3.5 0 0 0 5 0" /></svg>
+  ),
+  Discord: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" /><path d="M9 8c-2 0-3 1.5-3 3 0 1.5 1 3 3 3a1.5 1.5 0 0 0 1.5-1.5V11" /><path d="M15 8c2 0 3 1.5 3 3 0 1.5-1 3-3 3a1.5 1.5 0 0 1-1.5-1.5V11" /><path d="M12 15s3.5 1.5 3.5 4V20H8.5v-1c0-2.5 3.5-4 3.5-4Z" /><path d="m19 19-1.5-2" /><path d="m5 19 1.5-2" /></svg>
   )
 };

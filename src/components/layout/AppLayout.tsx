@@ -38,7 +38,15 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                         rel="noopener noreferrer"
                         className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-400 hover:text-black hover:bg-zinc-50"
                     >
-                        <ICONS.Club /> Club X1
+                        <ICONS.WhatsApp /> WHATSAPP
+                    </a>
+                    <a
+                        href="https://discord.gg/EK8su2XQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2 md:px-4 md:py-3 rounded-lg font-black transition-all text-[10px] md:text-sm uppercase tracking-widest text-zinc-400 hover:text-black hover:bg-zinc-50"
+                    >
+                        <ICONS.Discord /> DISCORD
                     </a>
                     {isAdmin && (
                         <Link to="/admin" className={navLinkClass('/admin')}>
@@ -87,8 +95,17 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg font-black transition-all text-[10px] uppercase tracking-widest text-zinc-400"
                 >
-                    <ICONS.Club />
-                    <span>Comunidade</span>
+                    <ICONS.WhatsApp />
+                    <span>Whats</span>
+                </a>
+                <a
+                    href="https://discord.gg/EK8su2XQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg font-black transition-all text-[10px] uppercase tracking-widest text-zinc-400"
+                >
+                    <ICONS.Discord />
+                    <span>Discord</span>
                 </a>
                 {isAdmin && (
                     <Link to="/admin" className={navLinkClass('/admin')}>
