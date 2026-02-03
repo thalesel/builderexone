@@ -63,7 +63,7 @@ export const LoginPage = () => {
                         <div className="flex flex-col gap-6">
                             <div className="w-full aspect-square max-w-[320px] mx-auto relative">
                                 <img
-                                    src="/LOGO.png"
+                                    src="/brand-logo.png"
                                     alt=""
                                     className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform duration-1000 ease-out"
                                 />
