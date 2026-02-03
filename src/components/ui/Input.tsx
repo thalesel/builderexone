@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-export const Input = ({ label, value, onChange, placeholder, type = 'text', required = false }: any) => (
+export const Input = ({ label, value, onChange, placeholder, type = 'text', required = false, error }: any) => (
     <div className="flex flex-col gap-1.5 mb-5 w-full">
         <label className="text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 ml-1">{label} {required && '*'}</label>
         <input
@@ -10,7 +10,8 @@ export const Input = ({ label, value, onChange, placeholder, type = 'text', requ
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
             required={required}
-            className="border border-zinc-200 bg-white rounded-lg px-4 py-3 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all shadow-sm text-sm"
+            className={`border bg-white rounded-lg px-4 py-3 focus:border-black focus:ring-1 focus:ring-black outline-none transition-all shadow-sm text-sm ${error ? 'border-red-500' : 'border-zinc-200'}`}
         />
+        {error && <span className="text-[9px] text-red-500 font-bold ml-1 uppercase tracking-wider">{error}</span>}
     </div>
 );

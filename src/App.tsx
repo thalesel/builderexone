@@ -8,7 +8,7 @@ import { Dashboard } from './pages/Dashboard';
 import { PlansPage } from './pages/PlansPage';
 import { SiteForm } from './pages/SiteForm';
 import { AdminPanel } from './pages/AdminPanel';
-import { PublicSite } from './pages/PublicSite';
+import { SitePage } from './pages/SitePage';
 
 const PrivateRoute = ({ children, adminOnly = false }: { children: React.ReactNode, adminOnly?: boolean }) => {
   const { user, loading, signOut } = useAuth();
@@ -32,7 +32,6 @@ function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/site/:slug" element={<PublicSite />} />
       <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/dashboard" />} />
 
       <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
@@ -40,6 +39,9 @@ function AppRoutes() {
       <Route path="/create" element={<PrivateRoute><SiteForm /></PrivateRoute>} />
       <Route path="/edit/:id" element={<PrivateRoute><SiteForm /></PrivateRoute>} />
       <Route path="/admin" element={<PrivateRoute adminOnly><AdminPanel /></PrivateRoute>} />
+
+      {/* Public Site Route at root level */}
+      <Route path="/:slug" element={<SitePage />} />
 
       <Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />
     </Routes>

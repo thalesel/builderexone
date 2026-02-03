@@ -9,6 +9,7 @@ import { supabaseService } from '../services/supabaseService';
 import { ICONS } from '../constants';
 import { Site } from '../types';
 import { useAuth } from '../context/AuthContext';
+import { generateSlug } from '../lib/utils';
 
 export const SiteForm = () => {
     const { user, refreshProfile } = useAuth();
@@ -17,9 +18,12 @@ export const SiteForm = () => {
     const [loading, setLoading] = useState(false);
     const [showUpsellModal, setShowUpsellModal] = useState(false);
     const [existingSite, setExistingSite] = useState<Site | undefined>(undefined);
+    const [slugError, setSlugError] = useState('');
+    const [isSlugManuallyEdited, setIsSlugManuallyEdited] = useState(false);
 
     const [formData, setFormData] = useState({
         dominio: '',
+        slug: '',
         razao_social: '',
         cnpj: '',
         missao: '',
@@ -42,6 +46,7 @@ export const SiteForm = () => {
                     setExistingSite(site);
                     setFormData({
                         dominio: site.dominio || '',
+                        slug: site.slug || '',
                         razao_social: site.razao_social || '',
                         cnpj: site.cnpj || '',
                         missao: site.missao || '',
@@ -66,28 +71,36 @@ export const SiteForm = () => {
         if (!user) return;
 
         // Check for plan before submitting (only for new sites)
-        const hasNoPlan = user.role !== 'admin' && user.slots_total === 0;
         const isLimitReached = user.role !== 'admin' && user.slots_usados >= user.slots_total;
 
-        if (!existingSite && (hasNoPlan || isLimitReached)) {
+        if (!existingSite && isLimitReached) {
             setShowUpsellModal(true);
+            return;
+        }
+
+        if (!formData.slug) {
+            setSlugError('O slug é obrigatório');
             return;
         }
 
         setLoading(true);
         try {
-            const slug = formData.razao_social.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            // Check slug availability
+            const isAvailable = await supabaseService.isSlugAvailable(formData.slug, existingSite?.id);
+            if (!isAvailable) {
+                setSlugError('Este endereço (slug) já está sendo usado por outro site');
+                setLoading(false);
+                return;
+            }
 
             if (existingSite) {
                 await supabaseService.updateSite(existingSite.id, {
-                    ...formData,
-                    slug
+                    ...formData
                 });
             } else {
                 await supabaseService.createSite({
                     ...formData,
-                    user_id: user.id,
-                    slug,
+                    user_id: user.id
                 });
             }
 
@@ -123,8 +136,33 @@ export const SiteForm = () => {
                     {
                         title: "01 / Identidade",
                         fields: [
-                            { label: "Domínio", key: "dominio", placeholder: "exemplo.com.br", required: true },
-                            { label: "Razão Social", key: "razao_social", placeholder: "Minha Empresa LTDA", required: true },
+                            {
+                                label: "Razão Social",
+                                key: "razao_social",
+                                placeholder: "Minha Empresa LTDA",
+                                required: true,
+                                onChange: (val: string) => {
+                                    const updates: any = { razao_social: val };
+                                    if (!isSlugManuallyEdited && !existingSite) {
+                                        updates.slug = generateSlug(val);
+                                        setSlugError('');
+                                    }
+                                    setFormData({ ...formData, ...updates });
+                                }
+                            },
+                            {
+                                label: "Slug (Link do Site)",
+                                key: "slug",
+                                placeholder: "ex-minha-empresa",
+                                required: true,
+                                error: slugError,
+                                onChange: (val: string) => {
+                                    setIsSlugManuallyEdited(true);
+                                    setFormData({ ...formData, slug: generateSlug(val) });
+                                    setSlugError('');
+                                }
+                            },
+                            { label: "Domínio próprio (Opcional)", key: "dominio", placeholder: "exemplo.com.br" },
                             { label: "CNPJ", key: "cnpj", placeholder: "00.000.000/0001-00" },
                             { label: "Frase de Impacto", key: "missao", placeholder: "Ex: Especialistas em..." }
                         ]
@@ -176,9 +214,10 @@ export const SiteForm = () => {
                                         key={field.key}
                                         label={field.label}
                                         value={(formData as any)[field.key]}
-                                        onChange={(v: string) => setFormData({ ...formData, [field.key]: v })}
+                                        onChange={(v: string) => field.onChange ? field.onChange(v) : setFormData({ ...formData, [field.key]: v })}
                                         placeholder={field.placeholder}
                                         required={field.required}
+                                        error={(field as any).error}
                                     />
                                 )
                             ))}

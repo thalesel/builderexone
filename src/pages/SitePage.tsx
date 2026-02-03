@@ -5,7 +5,7 @@ import { supabaseService } from '../services/supabaseService';
 import { Site, SupportNumber } from '../types';
 import { ICONS } from '../constants';
 
-export const PublicSite = () => {
+export const SitePage = () => {
     const { slug } = useParams();
     const [site, setSite] = useState<Site | null>(null);
     const [supportNumbers, setSupportNumbers] = useState<SupportNumber[]>([]);
@@ -79,15 +79,9 @@ export const PublicSite = () => {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-300 mb-8">Ecossistema Digital</h3>
-                        <div className="flex flex-col gap-3">
-                            {site.instagram && (
-                                <a href={`https://instagram.com/${site.instagram.replace('@', '')}`} className="w-full text-center py-4 bg-black text-white text-[10px] uppercase font-black tracking-[0.2em] hover:bg-zinc-800 transition-all rounded-lg shadow-xl active:scale-95">Instagram Oficial</a>
-                            )}
-                            {site.whatsapp && (
-                                <a href={`https://wa.me/${site.whatsapp}`} className="w-full text-center py-4 border-2 border-black text-black text-[10px] uppercase font-black tracking-[0.2em] hover:bg-zinc-50 transition-all rounded-lg active:scale-95">WhatsApp Business</a>
-                            )}
-                        </div>
+                        {site.whatsapp && (
+                            <a href={`https://wa.me/${site.whatsapp}`} className="w-full text-center py-4 border-2 border-black text-black text-[10px] uppercase font-black tracking-[0.2em] hover:bg-zinc-50 transition-all rounded-lg active:scale-95">WhatsApp Business</a>
+                        )}
                     </div>
                 </section>
             </main>

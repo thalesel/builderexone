@@ -30,6 +30,15 @@ export const supabaseService = {
         return data as Site;
     },
 
+    isSlugAvailable: async (slug: string, excludeId?: string) => {
+        let query = supabase.from('sites').select('id').eq('slug', slug);
+        if (excludeId) {
+            query = query.neq('id', excludeId);
+        }
+        const { data } = await query;
+        return !data || data.length === 0;
+    },
+
     getSiteById: async (id: string) => {
         const { data } = await supabase.from('sites').select('*').eq('id', id).single();
         return data as Site;
