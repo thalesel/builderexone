@@ -56,7 +56,7 @@ export const LoginPage = () => {
 
                     <div className="relative z-10 p-16 flex flex-col justify-between h-full w-full">
                         <div className="flex items-center gap-3">
-                            <img src="/logo.png" alt="Builder Exone" className="h-8 w-auto" />
+                            <img src="/logo.png" alt="" className="h-8 w-auto" />
                             <span className="text-white font-black tracking-tighter text-xl uppercase italic">BUILDER EXONE</span>
                         </div>
 
@@ -64,7 +64,7 @@ export const LoginPage = () => {
                             <div className="w-full aspect-square max-w-[320px] mx-auto relative">
                                 <img
                                     src="/LOGO.png"
-                                    alt="Logo High Res"
+                                    alt=""
                                     className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform duration-1000 ease-out"
                                 />
                             </div>
@@ -83,7 +83,7 @@ export const LoginPage = () => {
                 <div className="flex-1 p-8 md:p-16 flex flex-col justify-center bg-white">
                     {/* Mobile Header (Hidden on PC) */}
                     <div className="md:hidden text-center mb-12">
-                        <img src="/logo.png" alt="Builder Exone" className="h-16 w-auto mx-auto mb-6" />
+                        <img src="/logo.png" alt="" className="h-16 w-auto mx-auto mb-6" />
                         <h1 className="text-3xl font-black tracking-tighter uppercase italic">BUILDER EXONE</h1>
                         <div className="h-1 w-12 bg-black mx-auto mt-4"></div>
                     </div>
