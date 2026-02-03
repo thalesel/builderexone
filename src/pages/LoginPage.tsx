@@ -61,13 +61,6 @@ export const LoginPage = () => {
                         </div>
 
                         <div className="flex flex-col gap-6">
-                            <div className="w-full aspect-square max-w-[320px] mx-auto relative">
-                                <img
-                                    src="/brand-logo.png"
-                                    alt=""
-                                    className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform duration-1000 ease-out"
-                                />
-                            </div>
                             <div className="space-y-4">
                                 <p className="text-blue-500 text-[10px] font-black uppercase tracking-[0.4em]">Personal Hub</p>
                                 <h2 className="text-white text-4xl md:text-5xl font-black leading-[1.1] tracking-tighter uppercase italic">
