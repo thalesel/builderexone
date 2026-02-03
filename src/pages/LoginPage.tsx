@@ -45,7 +45,7 @@ export const LoginPage = () => {
                     playsInline
                     className="w-full h-full object-cover"
                 >
-                    <source src="/bk.mp4" type="video/mp4" />
+                    <source src="/bk.mp4?v=2" type="video/mp4" />
                 </video>
                 {/* Dark Overlay to help contrast */}
                 <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
