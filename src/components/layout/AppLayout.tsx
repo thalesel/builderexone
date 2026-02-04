@@ -65,7 +65,6 @@ export const AppLayout = ({ user, onLogout, children }: { user: UserProfile; onL
             {/* Mobile Header */}
             <header className="md:hidden flex items-center justify-between px-6 py-5 bg-zinc-900 border-b border-zinc-800 sticky top-0 z-30">
                 <div className="flex items-center gap-3">
-                    <img src="/LOGO.png?v=2" alt="Builder Exone" className="h-6 w-auto brightness-0 invert" />
                     <h1 className="text-sm font-black tracking-tighter uppercase italic">BUILDER EXONE</h1>
                 </div>
                 <button onClick={onLogout} className="text-[10px] font-black uppercase tracking-widest text-zinc-500 border border-zinc-800 px-4 py-2 rounded-xl bg-zinc-950">Sair</button>
